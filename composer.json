@@ -1,0 +1,32 @@
+{
+    "name": "daveismyname/laravel-filters",
+    "description": "Save and reuse query string based filters",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Carr",
+            "email": "dave@daveismyname.com",
+            "homepage": "https://daveismyname.blog"
+        }
+    ],
+    "homepage": "https://github.com/daveismyname/laravel-filters",
+    "keywords": ["Laravel", "Filter"],
+    "require": {
+        "illuminate/support": "~5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Daveismyname\\Filters\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Daveismyname\\Filters\\FiltersServiceProvider"
+            ],
+            "aliases": {
+                "Filters": "Daveismyname\\Filters\\Facades\\Filters"
+            }
+        }
+    }
+}
