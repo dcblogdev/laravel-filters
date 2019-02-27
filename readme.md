@@ -1,5 +1,5 @@
 
-# Filters WIP
+# Filters
 
 A Laravel package for saving and reusing query based filtering.
 
