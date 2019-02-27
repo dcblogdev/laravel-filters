@@ -65,14 +65,82 @@ use Daveismyname\Filters\Models\Filter;
 A routes example:
 
 ```php
-
 Route::group(['middleware' => ['web', 'auth']], function(){
-    Route::get('showfilters', function(){
-        return Filters::get();
+    Route::get('demo', function(){
+        $filters = Filters::get();
+
+        return view('demo');
     });
 });
 ```
 
+the `get` accepts 2 optional params:
+1) The name of the module/section ie users
+2) The relative url to redirect to ie /admin/users
+
+In demo.blade.php view:
+
+Save a filter:
+```php
+<form method="get">
+    <div class="control-group">
+        <label for='savedfilter'>Use a saved filter:</label>
+        <select name='savedfilter' id="savedfilter" class='form-control' onchange="this.form.submit()">
+        <option value=''>Select</option>
+        @if ($filters)
+            @foreach($filters as $filter)
+                <option value='{{ $filter->id }}'>{{ $filter->title }}</option>
+            @endforeach
+        @endif
+        </select>
+    </div>
+</form>
+```
+
+Remove a filter
+```php
+<form method="get">
+    <div class="control-group">
+        <label for='removefilter'>Remove a saved filter:</label>
+        <select name='removefilter' id="removefilter" class='form-control' onchange="this.form.submit()">
+        <option value=''>Select</option>
+        @if ($filters)
+            @foreach($filters as $filter)
+                <option value='{{ $filter->id }}'>{{ $filter->title }}</option>
+            @endforeach
+        @endif
+        </select>
+    </div>
+</form>
+```
+
+Store a new filter
+```php
+<form method="get">
+    <div class="control-group">
+        <label for='filterTitle'>Save filter:</label>
+        <input class='form-control' id='filterTitle' type="text" name="filterTitle" value="" />
+    </div>
+
+    <div class="control-group">
+        <br><button type="submit" id='savefilter' class="btn btn-success" name="savefilter"><i class="fa fa-check"></i> Save Filter</button>
+    </div>
+</form>
+```
+
+For the filter actions to run call `run($module, $url)` 
+```php
+Filters::run('users', 'admin/users');
+```
+
+Internally there are 3 methods that will be called based on the query string parameters:
+
+When `savefilter` exists in the url then `storeFilter()` will run to store the filter.
+Also storeFilter requires a `filterTitle` parameter to give a name to the filter.
+
+
+When `savedfilter` exists in the url then `applyFilter()` will return the filter stored.
+When `removefilter` exists in the url then `deleteFilter()` will run to delete the filter.
 
 ## Change log
 
