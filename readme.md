@@ -22,25 +22,25 @@ In Laravel 5.5 the service provider will automatically get registered. In older 
 
 You can publish the migration with:
 
-```
+```bash
 php artisan vendor:publish --provider="Daveismyname\Filters\FiltersServiceProvider" --tag="migrations"
 ```
 
 After the migration has been published migrate it:
 
-```
+```bash
 php artisan migrate
 ```
 
 You can publish the config file with:
 
-```
+```bash
 php artisan vendor:publish --provider="Daveismyname\Filters\FiltersServiceProvider" --tag="config"
 ```
 
 When published, the config/filters.php config file contains:
 
-```
+```php
 <?php
 
 return [
@@ -64,7 +64,7 @@ use Daveismyname\Filters\Models\Filter;
 
 A routes example:
 
-```
+```php
 
 Route::group(['middleware' => ['web', 'auth']], function(){
     Route::get('showfilters', function(){
