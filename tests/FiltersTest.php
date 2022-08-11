@@ -13,6 +13,6 @@ class FiltersTest extends TestCase
         $data = json_decode($json, true);
         $filters = new Filters();
         $result = $filters->buildQuery($data);
-        var_dump($result);
+        self::assertEquals('test%5B0%5D=1234&filterTitle=test', $result);
     }
 }
