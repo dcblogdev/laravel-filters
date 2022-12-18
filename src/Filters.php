@@ -44,9 +44,7 @@ class Filters
             $url = null;
 
             //loop over each key of array and convert into &item=value
-            $url .= '?' . implode('&', array_map(function($item) {
-                return $item[0] . '=' . $item[1];
-            }, array_map(null, array_keys($data), $data)));
+            $url .= '?' . $this->buildQuery($data);
 
             //find out how many filters exist matching the user and the title
             $filterCount = Filter::where('user_id', auth()->id())->where('title', request('filterTitle'))->count();
@@ -91,5 +89,14 @@ class Filters
             //redirect back
             return redirect()->to($moduleurl)->send();
         }
+    }
+
+    /**
+     * @param array $data
+     * @return string
+     */
+    public function buildQuery($data)
+    {
+        return http_build_query($data);
     }
 }
