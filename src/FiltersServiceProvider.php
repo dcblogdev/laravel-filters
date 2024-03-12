@@ -3,7 +3,7 @@
 namespace Dcblogdev\Filters;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Routing\Route;
+use Illuminate\Routing\Router;
 
 class FiltersServiceProvider extends ServiceProvider
 {
