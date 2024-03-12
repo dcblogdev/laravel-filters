@@ -1,6 +1,6 @@
 <?php
 
-namespace Daveismyname\Filters\Models;
+namespace Dcblogdev\Filters\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

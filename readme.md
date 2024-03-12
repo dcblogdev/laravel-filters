@@ -8,7 +8,7 @@ A Laravel package for saving and reusing query based filtering.
 Via Composer
 
 ``` bash
-$ composer require daveismyname/laravel-filters
+$ composer require dcblogdev/laravel-filters
 ```
 
 In Laravel 5.5 the service provider will automatically get registered. In older versions of the framework just add the service provider in config/app.php file:
@@ -16,14 +16,14 @@ In Laravel 5.5 the service provider will automatically get registered. In older 
 ```
 'providers' => [
     // ...
-    Daveismyname\Filters\FiltersServiceProvider::class,
+    Dcblogdev\Filters\FiltersServiceProvider::class,
 ];
 ```
 
 You can publish the migration with:
 
 ```bash
-php artisan vendor:publish --provider="Daveismyname\Filters\FiltersServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="Dcblogdev\Filters\FiltersServiceProvider" --tag="migrations"
 ```
 
 After the migration has been published migrate it:
@@ -35,7 +35,7 @@ php artisan migrate
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --provider="Daveismyname\Filters\FiltersServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Dcblogdev\Filters\FiltersServiceProvider" --tag="config"
 ```
 
 When published, the config/filters.php config file contains:
@@ -54,7 +54,7 @@ return [
 Access filter model, to access the model reference this ORM model
 
 ```
-use Daveismyname\Filters\Models\Filter;
+use Dcblogdev\Filters\Models\Filter;
 ```
 
 
@@ -151,7 +151,7 @@ Please see the [changelog](changelog.md) for more information on what has change
 
 Contributions are welcome and will be fully credited.
 
-Contributions are accepted via Pull Requests on [Github](https://github.com/daveismyname/laravel-filters).
+Contributions are accepted via Pull Requests on [Github](https://github.com/dcblogdev/laravel-filters).
 
 ## Pull Requests
 

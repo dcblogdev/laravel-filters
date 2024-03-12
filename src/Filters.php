@@ -1,8 +1,8 @@
 <?php
 
-namespace Daveismyname\Filters;
+namespace Dcblogdev\Filters;
 
-use Daveismyname\Filters\Models\Filter;
+use Dcblogdev\Filters\Models\Filter;
 
 class Filters
 {
@@ -16,25 +16,25 @@ class Filters
         return $query->get();
     }
 
-    public function run($module, $moduleurl)
+    public function run($module, $moduleUrl)
     {
         //if filter savefilter has been clicked
         if (request()->exists('savefilter')) {
-            $this->storeFilter($module, $moduleurl);
+            $this->storeFilter($module, $moduleUrl);
         }
 
         //if a saved filter has been selected
         if (request()->exists('savedfilter')) {
-            $this->applyFilter($module, $moduleurl);
+            $this->applyFilter($module, $moduleUrl);
         }
 
         //if a saved filter has been selected
         if (request()->exists('removefilter')) {
-            $this->deleteFilter($moduleurl);
+            $this->deleteFilter($moduleUrl);
         }
     }
 
-    protected function storeFilter($module, $moduleurl)
+    protected function storeFilter($module, $moduleUrl)
     {
         //if filter title is not empty
         if (request('filterTitle') !='') {
@@ -59,12 +59,12 @@ class Filters
                 ]);
 
                 //redirect back and apply the requested filter
-                redirect()->to("$moduleurl/$url")->send();
+                redirect()->to("$moduleUrl/$url")->send();
             }
         }
     }
 
-    protected function applyFilter($module, $moduleurl)
+    protected function applyFilter($module, $moduleUrl)
     {
         //find out how many filters exist matching the user and the title
         $filter = Filter::find(request('savedfilter'));
@@ -72,11 +72,11 @@ class Filters
         if ($filter != null) {
 
             //redirect back and apply the requested filter
-            redirect()->to("$moduleurl/$filter->data")->send();
+            redirect()->to("$moduleUrl/$filter->data")->send();
         }
     }
 
-    protected function deleteFilter($moduleurl)
+    protected function deleteFilter($moduleUrl)
     {
         //find the filter
         $filter = Filter::find(request('removefilter'));
@@ -87,7 +87,7 @@ class Filters
             $filter->delete();
 
             //redirect back
-            return redirect()->to($moduleurl)->send();
+            return redirect()->to($moduleUrl)->send();
         }
     }
 

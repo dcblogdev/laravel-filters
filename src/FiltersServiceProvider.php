@@ -1,8 +1,9 @@
 <?php
 
-namespace Daveismyname\Filters;
+namespace Dcblogdev\Filters;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Routing\Route;
 
 class FiltersServiceProvider extends ServiceProvider
 {
@@ -11,7 +12,7 @@ class FiltersServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(\Illuminate\Routing\Router $router)
+    public function boot(Router $router)
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 

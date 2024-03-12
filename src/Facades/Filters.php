@@ -1,6 +1,6 @@
 <?php
 
-namespace Daveismyname\Filters\Facades;
+namespace Dcblogdev\Filters\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

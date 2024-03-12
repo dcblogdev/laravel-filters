@@ -1,8 +1,8 @@
 <?php
 
-namespace Daveismyname\Filters\Tests;
+namespace Dcblogdev\Filters\Tests;
 
-use Daveismyname\Filters\Filters;
+use Dcblogdev\Filters\Filters;
 use PHPUnit\Framework\TestCase;
 
 class FiltersTest extends TestCase
