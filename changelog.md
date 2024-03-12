@@ -2,6 +2,14 @@
 
 All notable changes to `Filter` will be documented in this file.
 
+## Version 2.0.1
+
+- Enabled tests
+
+## Version 2.0.0
+
+- Changed vendor from Daveismyname to Dcblogdev
+
 ## Version 1.0.6
 
 - Added support for Laravel 11
